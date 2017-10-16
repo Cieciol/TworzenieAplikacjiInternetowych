@@ -14,7 +14,7 @@ $studenci = array(
     311114 => [3, 4, 2, 4, 5, 2]
 );
 foreach ($studenci as $klucz => $wartosc) {
-    print (' strednia studenta o numerze albumu:'. $klucz);
+    print ('średnia studenta o numerze albumu:'. $klucz);
     print(' '.(array_sum($wartosc)/count($wartosc)).'<br/>');
 print('<br/>');
 }

@@ -12,32 +12,32 @@ $zm3 = 1;
 $zm4 = 0;
 $zm5 = true;
 $zm6 = "0";
+$doc_root = "~/PhpstormProjects/untitled";
 $zm7 = "Ala ma kota a kot ma Ale";
 $zm8 = [1, 2, 3, 4];
 $zm9 = [];
 $zm10 = ["zielony", "czerwny", "niebieski"];
 $zm11 = new DateTime();
 
-is_everythting($zm1);
-is_everythting($zm2);
-is_everythting($zm3);
-is_everythting($zm4);
-is_everythting($zm5);
-is_everythting($zm6);
-is_everythting($zm7);
-is_everythting($zm8);
-is_everythting($zm9);
-is_everythting($zm10);
-is_everythting($zm11);
+is_everything($zm1);
+is_everything($zm2);
+is_everything($zm3);
+is_everything($zm4);
+is_everything($zm5);
+is_everything($zm6);
+is_everything($zm7);
+is_everything($zm8);
+is_everything($zm9);
+is_everything($zm10);
+is_everything($zm11);
 
 
-
-function is_everythting($zm)
+function is_everything($zm)
 {
-    if(is_object($zm))echo date_format($zm,'Y-m-d H:i:s').'<br/>';
-    elseif(is_array($zm)){
-        for($i=0;$i<count($zm);$i++){
-            print ($zm[$i].' ');
+    if (is_object($zm)) echo date_format($zm, 'Y-m-d H:i:s') . '<br/>';
+    elseif (is_array($zm)) {
+        for ($i = 0; $i < count($zm); $i++) {
+            print ($zm[$i] . ' ');
         }
         print('<br/>print_r ');
         print_r($zm);
@@ -45,8 +45,7 @@ function is_everythting($zm)
         var_dump($zm);
         print('<br/>');
 
-    }
-    else print($zm.'<br/>');
+    } else print($zm . '<br/>');
     print('is bool? ');
     if (is_bool($zm)) print ("YES <br/>"); else print ("NO <br/>");
     print('is int? ');

@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Formularz</title>
+
 </head>
 <body>
 <h2>Przykładowy formularz HTML:</h2>
-<form id="formularz" name="formularz" action="odbierz.php" method="post">
+<form id="formularz" name="formularz" action="formularze.php" method="get">
 
     <h2>Wypełnij ankiete</h2>
     <label>Nazwisko:
-        <input type="text" id="nazw" name="nazw" required>
+        <input type="text" id="nazw" name="nazw">
         <br/>
     </label>
     <label>Wiek:
-        <input type="number" name="wiek" min="4" max="100" value="16" required>
+        <input type="number" name="wiek" min="4" max="100" value="16">
         <br/>
     </label>
 
@@ -47,11 +48,16 @@
 
 
     <div>
-        <button type="submit" class="btn btn-default">Wyślij</button>
-        <button type="reset" class="btn btn-danger">Wyczyść formularz</button>
+        <button type="reset">Wyczyść</button>
+        <button type="submit" name="dodaj">Dodaj</button>
+        <button type="submit" name="pokaz">Pokaż</button>
+        <button type="submit" name="pokazjava">Java</button>
+        <button type="submit" name="pokazphp">PHP</button>
+        <button type="submit" name="pokazcpp">CPP</button>
     </div>
 
 </form>
+
 
 </body>
 </html>
