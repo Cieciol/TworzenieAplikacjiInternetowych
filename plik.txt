@@ -1,0 +1,17 @@
+x 16   Polska    tomasz.szczygielski@pollub.edu.pl   C\C++,   eurocard<br/>
+ 16   Polska    dsa@2p.pl   C\C++,   visa<br/>
+ 16   Polska    dsa@2p.pl   Java,   przelew<br/>
+ 16   Polska    re@wp.pl   PHP,   visa<br/>
+rew 16   Polska    re@wp.pl   PHP,   visa<br/>
+dqw 16   Polska    ds@wp.pl   C\C++,   visa<br/>
+ 16   Polska    dsa@2p.pl   Java,   przelew<br/>
+DSADS 26   Polska    dsa@2p.pl      visa<br/>
+ewqewqewq 16   Polska    ewq@wop.pl      visa<br/>
+sasa 16   Polska    tomasz.szczygielski@pollub.edu.pl   Array   <br/>
+szczygielski 17   Polska    cdsad@wp.pl   Array   <br/>
+dsad 16   Polska    dsa@2p.pl   C\C++,Java,   <br/>
+adsadds 16   Polska    dsa@2p.pl   PHP,C\C++,Java,   <br/>
+dsad 16   Polska    dsa@2p.pl   C\C++,Java,   <br/>
+few 16   Polska    few@wp.p   PHP,C\C++,   visa<br/>
+dd 11   Dania       C\C++,Java,   visa<br/>
+szczygielski;16;Polska;dsa@2p.pl;C\C++,Java,;visa<br/>Vlad 21 Polska tomasczygielski@pollub.edu.pl PHP, visaWea 16 Polska DWQ#@WP.PL C\C++,Java, eurocard
