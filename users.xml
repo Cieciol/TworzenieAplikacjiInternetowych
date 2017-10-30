@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <username>admin</username>
+        <passwd>admin</passwd>
+        <fullname>Administrator</fullname>
+        <email>admin@gmail.com</email>
+        <date>01-11-2015</date>
+        <status>2</status>
+    </user>
+    <user>
+        <username>beatap</username>
+        <passwd>beatap</passwd>
+        <fullname>Beata P.</fullname>
+        <email>beatap@gmail.com</email>
+        <date>01-11-2015</date>
+        <status>1</status>
+    </user>
+    <user>
+        <username>Szczygielski</username>
+        <passwd>f04ee461abcdcd63b91215f836d877d1</passwd>
+        <fullname>ddaaw</fullname>
+        <email>dasa@wp.pl</email>
+        <status>1</status>
+    </user>
+    <user>
+        <username>Szczygielski</username>
+        <passwd>f04ee461abcdcd63b91215f836d877d1</passwd>
+        <fullname>ddaaw</fullname>
+        <email>dasa@wp.pl</email>
+        <status>1</status>
+    </user>
+<user><username>dsad</username><passwd>ea23f344187e4d9ed161dc96331445e4</passwd><fullname>dewdew</fullname><email>de@wp.pl</email><date>30-10-2017</date><status>1</status></user></users>
