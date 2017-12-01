@@ -7,11 +7,11 @@
  */
 
 //tworzymy uchwyt do bazy klienci:
-include_once "lib/BazaForm.php";
+include_once "lib/Baza.php";
 include_once "formularz.html";
 
 
-$ob = new BazaForm("localhost", "root", "tom123", "klienci");
+$ob = new Baza("localhost", "root", "tom123", "klienci");
 
 if (isset($_REQUEST['pokaz'])) {
     pokaz();
@@ -30,18 +30,20 @@ if (isset($_REQUEST['pokaz'])) {
 function pokaz()
 {
     global $ob;
-    echo $ob->select("select Nazwisko,Zamowienie from klienci.Klienci", array("Nazwisko", "Zamowienie"));
+    echo $ob->select("SELECT Nazwisko,Zamowienie FROM klienci.Klienci", array("Nazwisko", "Zamowienie"));
 }
 
 function dodaj()
 {
     global $ob;
     $dane = validate();
-    $ob->insert($dane);
+    $sql = sanitate($dane);
+    $ob->insert($sql);
 }
 
-function pokaz_jezyk(string $language_name){
-    global$ob;
+function pokaz_jezyk(string $language_name)
+{
+    global $ob;
     echo $ob->select("select Nazwisko,Zamowienie from klienci.Klienci WHERE Zamowienie REGEXP '$language_name'", array("Nazwisko", "Zamowienie"));
 }
 
@@ -96,4 +98,36 @@ function poinformuj_o_bledach($dane): bool
         $czy_sa_bledy = true;
     }
     return $czy_sa_bledy;
+}
+
+function sanitate($values)
+{
+    $sql = "INSERT INTO klienci.Klienci(Nazwisko, Wiek, Panstwo, Email, Zamowienie, Platnosc) VALUES ";
+    $valuesArr = array();
+    $nazwisko = $this->mysqli->real_escape_string($values['nazwisko']);
+    $wiek = $this->mysqli->real_escape_string($values['wiek']);
+    $panstwo = $this->mysqli->real_escape_string($values['panstwo']);
+    $email = $this->mysqli->real_escape_string($values['email']);
+    $zamowienie = handle_array($values['tutorial']);
+    $platnosc = $this->mysqli->real_escape_string($values['zaplata']);
+    $valuesArr[] = "('$nazwisko', '$wiek', '$panstwo', '$email', $zamowienie, '$platnosc')";
+
+
+    $sql .= implode(',', $valuesArr);
+    return $sql;
+}
+
+
+function handle_array($array_values)
+{
+    $returned_string = "";
+    if (is_array($array_values)) {
+        $returned_string .= "('";
+        foreach ($array_values as $value) {
+            $returned_string .= $this->mysqli->real_escape_string($value) . ", ";
+        }
+        $returned_string .= "')";
+    } else $returned_string = $array_values;
+
+    return $returned_string;
 }

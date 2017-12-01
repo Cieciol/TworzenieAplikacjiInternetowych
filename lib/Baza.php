@@ -6,9 +6,22 @@
  * Time: 11:30
  */
 
-class BazaForm
+class Baza
 {
+    /**
+     * @var mysqli
+     */
     private $mysqli; //uchwyt do BD
+
+    /**
+     * Baza constructor.
+     * @param $serwer
+     * @param $user
+     * @param $pass
+     * @param $baza
+     */
+
+
 
     public function __construct($serwer, $user, $pass, $baza)
     {
@@ -25,11 +38,19 @@ class BazaForm
         }
     } //koniec funkcji konstruktora
 
+    /**
+     *
+     */
     function __destruct()
     {
         $this->mysqli->close();
     }
 
+    /**
+     * @param $sql
+     * @param $pola
+     * @return string
+     */
     public function select($sql, $pola)
     {
         //parametr $sql – łańcuch zapytania select
@@ -55,43 +76,33 @@ class BazaForm
         return $tresc;
     }
 
-    public function insert($values): bool
+    /**
+     * @param $sql
+     * @return bool
+     */
+    public function insert($sql): bool
     {
-        $sql = "INSERT INTO klienci.Klienci(Nazwisko, Wiek, Panstwo, Email, Zamowienie, Platnosc) VALUES ";
-            $valuesArr = array();
-            $nazwisko = $this->mysqli->real_escape_string($values['nazwisko'] );
-            $wiek = $this->mysqli->real_escape_string($values['wiek'] );
-            $panstwo = $this->mysqli->real_escape_string($values['panstwo'] );
-            $email = $this->mysqli->real_escape_string($values['email'] );
-        $zamowienie = $this->handle_array($values['tutorial']);
-        $platnosc = $this->mysqli->real_escape_string($values['zaplata'] );
-            $valuesArr[] = "('$nazwisko', '$wiek', '$panstwo', '$email', $zamowienie, '$platnosc')";
-
-        $sql .= implode(',', $valuesArr);
         $result = $this->mysqli->query($sql);
         return $result;
     }
 
+    /**
+     * @param $sql
+     */
     public function delete($sql)
     {
         // uzupełnij zapytanie – i zwróć true lub false
     }
 
-    /**
-     * @param $values
-     * @return mixed
-     */
-    private function handle_array($array_values)
-    {
-        $returned_string = "";
-        if(is_array($array_values)){
-            $returned_string.="('";
-            foreach ($array_values as $value){
-                $returned_string.=$this->mysqli->real_escape_string($value).", ";
-            }
-            $returned_string.="')";
-        }else $returned_string = $array_values;
-
-        return $returned_string;
+    public function prepareData($escapestr) {
+        return $this->mysqli->real_escape_string($escapestr);
     }
+
+    public function executeQuery($statement){
+        return $this->mysqli->query($statement);
+    }
+
+
+
+
 }

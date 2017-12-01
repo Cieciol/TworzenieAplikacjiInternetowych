@@ -10,12 +10,52 @@ class User
     const STATUS_USER = 1;
     const STATUS_ADMIN = 2;
 
-    private $user_name;
-    private $passwd;
-    private $full_name;
-    private $email;
-    private $date;
-    private $status;
+    protected $user_name;
+    protected $passwd;
+    protected $full_name;
+    protected $email;
+    protected $date;
+    protected $status;
+
+    /**
+     * @return string
+     */
+    public function getPasswd(): string
+    {
+        return $this->passwd;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFullName()
+    {
+        return $this->full_name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getDate(): DateTime
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
 
     /**
      * User constructor.
@@ -24,7 +64,7 @@ class User
      * @param $full_name
      * @param $email
      */
-    private function __construct($user_name, $full_name, $email, $password)
+    public function __construct($user_name, $full_name, $email, $password)
     {
         $this->user_name = $user_name;
         $this->passwd = hash('md5', $password);
@@ -47,7 +87,7 @@ class User
         $fullName = filter_var($fullName, FILTER_SANITIZE_STRING);
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
         if (!empty($userName) && !empty($password) && !empty($fullName) && !empty($email)) {
-            return new User($userName, $fullName, $email, $password);
+            return new static($userName, $fullName, $email, $password);
         } else return null;
     }
 

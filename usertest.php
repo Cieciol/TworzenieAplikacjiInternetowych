@@ -4,6 +4,8 @@ $method = $_SERVER['REQUEST_METHOD'];
 define("POST", "POST");
 define("GET", "GET");
 include 'User.php';
+include 'UserDB.php';
+
 
 
 if ($method === GET) {
@@ -36,7 +38,7 @@ function przygotuj_form()
     </form>';
 }
 function dodaj_uzytkownika(){
-    $user = User::chcekForm($_POST['nazw'],
+    $user = UserDB::chcekForm($_POST['nazw'],
         $_POST['hasl'],
         $_POST['imieinazw'],
         $_POST['email']);
@@ -48,7 +50,7 @@ function dodaj_uzytkownika(){
 }
 function pokaz_uzytkownikow(){
     echo 'Zarejestrowani użytkownicy:'.HTML_EOL;
-    User::getAllUsers();
+    UserDB::getAllUsers();
 }
 
 ?>
